@@ -6,6 +6,6 @@ import dto.RegistrationDto;
 
 public interface Businessservice {
 public String savadata(Registration registrationDto);
-public Registration getsavadata(int mobile);
-public String sendotp(int mobile);
+public Registration getsavadata(Long mobile);
+public String sendotp(Long mobile);
 }

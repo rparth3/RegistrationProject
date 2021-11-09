@@ -8,7 +8,7 @@ public class Registration {
 	
 	 @Id
 	    @Column()
-	    private int  mobile ;
+	    private Long  mobile ;
 
     @Column()
     private String username ;
@@ -69,11 +69,11 @@ public class Registration {
 		this.address = address;
 	}
 
-	public int getMobile() {
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(int mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
 

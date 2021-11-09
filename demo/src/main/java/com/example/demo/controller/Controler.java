@@ -24,13 +24,13 @@ public class Controler {
 	
 	@GetMapping(value = "/getsavedata", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Registration getsavedata(@RequestBody Registration registrationDto ) {
-		int mobile ;
+		Long mobile ; 
 		mobile = registrationDto.getMobile();
 		return Service.getsavadata( mobile);	
 	}
 	@PostMapping(value = "/SendOtp", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String sendotp(@RequestBody Registration registrationDto ) {
-		int mobile ;
+		Long mobile ;
 		mobile = registrationDto.getMobile();
 		return Service.sendotp(mobile);	
 	}

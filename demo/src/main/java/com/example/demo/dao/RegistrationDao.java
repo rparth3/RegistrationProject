@@ -7,7 +7,7 @@ import dto.RegistrationDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface RegistrationDao extends JpaRepository<Registration,Integer> {
+public interface RegistrationDao extends JpaRepository<Registration,Long> {
 
 	
 }
