@@ -69,3 +69,12 @@ user data will be picked from session and will be shared in json format .
 
 
 
+
+********************************************************************************
+
+
+If i get more time to complete this will complete session related pending task, will work on password encryption and decryption to make in secure, Do more testing on this and will fix bugs and will also create UI for all these process.
+
+
+
+
