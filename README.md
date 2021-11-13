@@ -15,7 +15,7 @@ eg.
 }
 response from this service will be 
 {"Status":"Success","Details":"ydvd756e1778ye9r98"}
-status will be Success only if otp was sent to number
+status will be Success only if otp was sent to number else error will be given
 
 
 Step 2
@@ -23,12 +23,12 @@ Step 2
 Now User have to verify Otp for that they have to request another service http://localhost:8080/Registration/verifyOtp/
 with body in json format eg
    {
-    "session": "ydvd756e1778ye9r98", // this is same which we received from previous service
-    "mobile": 8114787103,
+    "session": "ydvd756e1778ye9r98", // this is same which we received in response from previous service in Details part
+    "mobile": 1234567890,
     "otp": 418607,  // enter what you received in your phone
     "name": "Rishav",
     "username": "rparth",
-    "password": "aadhar",
+    "password": "123456789",
     "dataofbirth": "01/01/2020",
     "address": "Ranchi"
 }
