@@ -11,5 +11,8 @@ public Registration getsavadata(Long mobile);
 public String sendotp(Long mobile);
 public String verifyotp(CommonDto commonDto);
 public String processsession(CommonDto cdto);
+public String login(Long mobile,String password);
+public String destroysession(CommonDto cdto) ;
+public String logout(CommonDto cdto) ;
 
 }

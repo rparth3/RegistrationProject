@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RegistrationDao extends JpaRepository<Registration,Long> {
 
+	Registration findBymobile(Long mobile);
 	
 }
- 
+  

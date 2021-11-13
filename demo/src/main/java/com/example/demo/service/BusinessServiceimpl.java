@@ -94,7 +94,7 @@ public class BusinessServiceimpl implements Businessservice {
 			rtn2fct = restTemplate.getForEntity(url, String.class).getBody();
 		} catch (Exception ex) {
 			System.out.println(ex);
-
+			rtn2fct = ex.getMessage();
 		}
 
 		return rtn2fct;
@@ -104,5 +104,34 @@ public class BusinessServiceimpl implements Businessservice {
 	public String processsession(CommonDto cdto) {
 		return null;
 	}
+	@Override
+	public String destroysession(CommonDto cdto) {
+		return null;
+	}
 
+	@Override
+	public String login(Long mobile,String password) {
+		Registration r = null;
+		try {
+		r = RD.findBymobile(mobile);
+		}
+		catch(Exception ex) {
+			System.out.println(ex); 
+		}
+		if(r != null) {
+		if(r.getPassword() != null && password!= null && r.getPassword().equals(password)) {
+			CommonDto cdto = new CommonDto();
+			cdto.setMobile(mobile);
+			String session = processsession(cdto);
+			return "Login Succesfull";
+		}}
+		return "Login Unsuccesfull";
+	}
+	
+	@Override
+	public String logout(CommonDto cdto) {
+		String session = destroysession(cdto);
+		return "";
+	}
 }
+

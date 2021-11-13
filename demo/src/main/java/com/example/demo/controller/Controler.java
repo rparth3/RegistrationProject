@@ -13,11 +13,12 @@ import com.example.demo.common.CommonDto;
 import com.example.demo.entity.Registration;
 import com.example.demo.service.BusinessServiceimpl;
 
+import dto.LoginDto;
 import dto.RegistrationDto;
 import dto.VerfyDto;
 
 @RestController
-@RequestMapping("/Registration")
+@RequestMapping("Registration/")
 
 public class Controler {
 	
@@ -25,39 +26,46 @@ public class Controler {
 	BusinessServiceimpl Service;
 
 	
-	@GetMapping(value = "/getsavedata", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "getsavedata", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Registration getsavedata(@RequestBody Registration registrationDto ) {
 		Long mobile ; 
 		mobile = registrationDto.getMobile();
 		return Service.getsavadata( mobile);	
 	}
-	@PostMapping(value = "/SendOtp", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "SendOtp", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String sendotp(@RequestBody Registration registrationDto ) {
 		Long mobile ;
 		mobile = registrationDto.getMobile();
 		return Service.sendotp(mobile);	
 	}
 	
-	@PostMapping(value = "/verifyOtp", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "verifyOtp", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String verifyotp(@RequestBody CommonDto commonDto) {
 		Long mobile ;
-		mobile = commonDto.getMobile();
-		return Service.verifyotp(mobile,commonDto.getOtp(),commonDto.getSession());	
+		return Service.verifyotp(commonDto);	
 	}
 	
-	@PostMapping(value = "/savedata", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "savedata", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String postdummy(@RequestBody Registration registrationDto ) {
 		
 		return Service.savadata(registrationDto)		;
 		
 	}
 	
+	@PostMapping(value = "login", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String login(@RequestBody LoginDto loginDto ) {
+		Long mobile = loginDto.getMobile();
+		String password = loginDto.getPassword(); 
+		return Service.login(mobile,password);
+		
+	}
+	
+	@PostMapping(value = "logout", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String logout(@RequestBody CommonDto commonDto) {
+		return Service.logout(commonDto);
+		
+	}
+	
 
 	
 }
-
-//
-//spring.datasource.url= jdbc:mysql://localhost:3306/mydbforregistrationproject
-//spring.datasource.username=root
-//spring.datasource.password=password
-//spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
