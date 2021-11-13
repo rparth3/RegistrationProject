@@ -1,0 +1,13 @@
+
+drop table Registration;
+
+CREATE TABLE Registration
+ (
+  username varchar(20) DEFAULT NULL,
+  name varchar(30) DEFAULT NULL,
+  password varchar(20) DEFAULT NULL,
+  dateofbirth varchar(20) DEFAULT NULL,
+  address varchar(20) DEFAULT NULL,
+  mobile varchar(20)  ,
+  PRIMARY KEY (mobile)
+) 
